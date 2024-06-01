@@ -2,7 +2,7 @@
 
 Name:           ansible-collection-dellemc-openmanage
 Version:        9.3.0
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Dell OpenManage collection for Ansible
 
 License:        GPL-3.0-only
