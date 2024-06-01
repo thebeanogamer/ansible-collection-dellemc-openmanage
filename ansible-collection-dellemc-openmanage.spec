@@ -25,6 +25,7 @@ Requires:       xorriso
 Requires:       syslinux
 Requires:       isomd5sum
 Requires:       wget
+Requires:       python3dist(omsdk)
 
 %description
 %{summary}.
@@ -33,6 +34,7 @@ Requires:       wget
 %prep
 %autosetup -p1 -n dellemc-openmanage-ansible-modules-%{version}
 find -type f ! -executable -name '*.py' -print -exec sed -i -e '1{\@^#!.*@d}' '{}' +
+find . -type f -empty -print -delete
 
 
 %if %{with tests}
