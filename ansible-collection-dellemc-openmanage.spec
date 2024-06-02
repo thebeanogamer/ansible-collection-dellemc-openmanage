@@ -34,7 +34,7 @@ Requires:       python3dist(omsdk)
 %prep
 %autosetup -p1 -n dellemc-openmanage-ansible-modules-%{version}
 find -type f ! -executable -name '*.py' -print -exec sed -i -e '1{\@^#!.*@d}' '{}' +
-find . -type f -empty -print -delete
+find . -type f -empty ! -name __init__.py -print -delete
 
 
 %if %{with tests}
