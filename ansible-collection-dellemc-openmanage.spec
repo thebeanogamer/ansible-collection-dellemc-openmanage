@@ -13,6 +13,7 @@ Source1:        https://github.com/dell/dellemc-openmanage-ansible-modules/relea
 Source2:        gpgkey-42550ABD1E80D7C1BC0BAD851285491434D8786F.gpg
 
 # File is missing from signed archive, but is required for RPM Macros
+# https://github.com/dell/dellemc-openmanage-ansible-modules/issues/674
 Source3:        https://raw.githubusercontent.com/dell/dellemc-openmanage-ansible-modules/v%{version}/galaxy.yml
 
 # build_ignore development files, tests, and docs
