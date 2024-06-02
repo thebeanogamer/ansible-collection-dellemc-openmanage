@@ -7,12 +7,20 @@ Summary:        Dell OpenManage collection for Ansible
 
 License:        GPL-3.0-only
 URL:            %{ansible_collection_url dellemc openmanage}
-Source:         https://github.com/dell/dellemc-openmanage-ansible-modules/archive/v%{version}/dellemc-openmanage-%{version}.tar.gz
+Source0:        https://github.com/dell/dellemc-openmanage-ansible-modules/releases/download/v%{version}/dellemc-openmanage-%{version}.tar.gz
+Source1:        https://github.com/dell/dellemc-openmanage-ansible-modules/releases/download/v%{version}/dellemc-openmanage-%{version}.tar.gz.sign
+# https://linux.dell.com/files/pgp_pubkeys/0x1285491434D8786F.asc
+Source2:        gpgkey-42550ABD1E80D7C1BC0BAD851285491434D8786F.gpg
+
+# File is missing from signed archive, but is required for RPM Macros
+Source3:        https://raw.githubusercontent.com/dell/dellemc-openmanage-ansible-modules/v%{version}/galaxy.yml
+
 # build_ignore development files, tests, and docs
 Patch:          build_ignore.patch
 
 BuildArch:      noarch
 
+BuildRequires:  gnupg2
 BuildRequires:  ansible-packaging
 %if %{with tests}
 BuildRequires:  ansible-packaging-tests
@@ -33,7 +41,10 @@ Requires:       python3dist(netaddr)
 
 
 %prep
-%autosetup -p1 -n dellemc-openmanage-ansible-modules-%{version}
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
+%autosetup -N -c -n dellemc-openmanage-%{version}
+cp '%{SOURCE3}' galaxy.yml
+%autopatch
 find -type f ! -executable -name '*.py' -print -exec sed -i -e '1{\@^#!.*@d}' '{}' +
 find . -type f -empty ! -name __init__.py -print -delete
 
@@ -60,7 +71,7 @@ find . -type f -empty ! -name __init__.py -print -delete
 
 %files -f %{ansible_collection_filelist}
 %license LICENSE
-%doc README.md CHANGELOG.rst* docs/*
+%doc README.md CHANGELOG.rst docs/*
 
 
 %changelog
