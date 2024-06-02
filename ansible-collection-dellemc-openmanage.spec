@@ -33,6 +33,8 @@ Requires:       xorriso
 Requires:       syslinux
 Requires:       isomd5sum
 Requires:       wget
+
+# From requirements.txt
 Requires:       python3dist(omsdk)
 Requires:       python3dist(netaddr)
 
@@ -45,7 +47,11 @@ Requires:       python3dist(netaddr)
 %autosetup -N -c -n dellemc-openmanage-%{version}
 cp '%{SOURCE3}' galaxy.yml
 %autopatch
+
+# Remove shebangs on non-executable files
 find -type f ! -executable -name '*.py' -print -exec sed -i -e '1{\@^#!.*@d}' '{}' +
+
+# Remove empty files
 find . -type f -empty ! -name __init__.py -print -delete
 
 
