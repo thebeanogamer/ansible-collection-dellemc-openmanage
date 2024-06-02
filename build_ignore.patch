@@ -7,16 +7,22 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 diff --git a/galaxy.yml b/galaxy.yml
 --- a/galaxy.yml	(revision 43e633bf94409b3cd5db9dc328b77299b181c795)
-+++ b/galaxy.yml	(date 1717274481793)
-@@ -56,3 +56,10 @@
++++ b/galaxy.yml	(date 1717287349977)
+@@ -56,3 +56,16 @@
    - BuildNumber.txt
    - codecov.yml
    - tests/integration
-+  - bindep.txt
++  - .ansible-lint
++  - .ansible-lint-ignore
++  - .github
++  - .gitignore
++  - .pyproject-builddir
 +  - CHANGELOG.rst
 +  - LICENSE
 +  - README.md
-+  - requirements.yml
++  - bindep.txt
 +  - changelogs
 +  - docs
++  - requirements.yml
++  - tests/.gitignore
 
