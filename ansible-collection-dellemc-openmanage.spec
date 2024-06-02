@@ -26,6 +26,7 @@ Requires:       syslinux
 Requires:       isomd5sum
 Requires:       wget
 Requires:       python3dist(omsdk)
+Requires:       python3dist(netaddr)
 
 %description
 %{summary}.
