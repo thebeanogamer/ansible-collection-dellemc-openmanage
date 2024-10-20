@@ -5,7 +5,14 @@ Version:        9.7.0
 Release:        %autorelease
 Summary:        Dell OpenManage collection for Ansible
 
-# https://github.com/dell/dellemc-openmanage-ansible-modules/issues/754
+# All file ares GPL-3.0-only except for:
+# plugins/module_utils/dellemc_idrac.py: BSD 2-Clause License
+# plugins/module_utils/idrac_redfish.py: BSD 2-Clause License
+# plugins/module_utils/ome.py: BSD 2-Clause License
+# plugins/module_utils/redfish.py: BSD 2-Clause License
+# plugins/module_utils/session_utils.py: BSD 2-Clause License
+# plugins/module_utils/utils.py: BSD 2-Clause License
+# Clarification requested upstream at https://github.com/dell/dellemc-openmanage-ansible-modules/issues/754
 License:        GPL-3.0-only AND BSD-2-Clause
 
 URL:            %{ansible_collection_url dellemc openmanage}
