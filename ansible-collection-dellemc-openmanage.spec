@@ -5,7 +5,7 @@ Version:        9.7.0
 Release:        %autorelease
 Summary:        Dell OpenManage collection for Ansible
 
-License:        GPL-3.0-only
+License:        GPL-3.0-only AND BSD-2-Clause
 URL:            %{ansible_collection_url dellemc openmanage}
 Source0:        https://github.com/dell/dellemc-openmanage-ansible-modules/releases/download/v%{version}/dellemc-openmanage-%{version}.tar.gz
 Source1:        https://github.com/dell/dellemc-openmanage-ansible-modules/releases/download/v%{version}/dellemc-openmanage-%{version}.tar.gz.sign
